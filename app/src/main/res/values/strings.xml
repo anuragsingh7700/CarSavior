@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Car Savior</string>
+    <string name="splash_desc">Splash Screen Car Savior</string>
+    <string name="logo_word_1">CAR</string>
+    <string name="logo_word_2">SAVIOR</string>
+    <string name="Manufacturer">Manufacturer</string>
+
+</resources>
