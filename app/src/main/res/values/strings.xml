@@ -16,15 +16,11 @@
     <string name="overheating">"Overheating "</string>
     <string name="smoke">Burning Smell</string>
 
-    <string-array name="country_arrays">
-        <item>Malaysia</item>
-        <item>United States</item>
-        <item>Indonesia</item>
-        <item>France</item>
-        <item>Italy</item>
-        <item>Singapore</item>
-        <item>New Zealand</item>
-        <item>India</item>
+    <string-array name="Manufacturers">
+        <item>Manufacturer</item>
+        <item>Maruti Suzuki</item>
+        <item>Tata</item>
+        <item>Honda</item>
     </string-array>
 
 </resources>
