@@ -67,7 +67,7 @@
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_margin="10dp"
-                android:background="#ffffff">
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="140dp"
@@ -92,7 +92,7 @@
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_margin="5dp"
-                android:background="#ffffff">
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="140dp"
@@ -122,7 +122,7 @@
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_margin="10dp"
-                android:background="#ffffff">
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="140dp"
@@ -147,7 +147,7 @@
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_margin="5dp"
-                android:background="#ffffff">
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="140dp"
@@ -177,7 +177,7 @@
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_margin="10dp"
-                android:background="#ffffff">
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="140dp"
@@ -202,7 +202,7 @@
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_margin="5dp"
-                android:background="#ffffff">
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="140dp"
@@ -232,7 +232,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:layout_margin="10dp"
-            android:background="#ffffff">
+            android:background="@drawable/rounded_corners">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="140dp"
@@ -256,7 +256,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:layout_margin="10dp"
-            android:background="#ffffff">
+            android:background="@drawable/rounded_corners">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="140dp"
@@ -285,7 +285,7 @@
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_margin="10dp"
-                android:background="#ffffff">
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:layout_width="140dp"

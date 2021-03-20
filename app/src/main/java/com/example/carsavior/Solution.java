@@ -1,5 +1,4 @@
 package com.example.carsavior;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -9,8 +8,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -32,26 +31,24 @@ public class Solution extends AppCompatActivity {
             manufacturer = extras.getString("manufacturer");
             model = extras.getString("model");
             problem = extras.getString("problem");
-            //The key argument here must match that used in the other activity
         }
         setContentView(R.layout.activity_solution);
         final DatabaseReference myRef = FirebaseDatabase.getInstance().getReference(manufacturer+"/"+model+"/"+problem);
-
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getChildren() == null){
-                    addSolution("No Solutions Listed Yet!","");
-                }
-                else{
+                if (dataSnapshot.getChildrenCount() > 0){
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String heading = child.getKey();
 
+                    assert heading != null;
                     String explanation = dataSnapshot.child(heading).getValue(String.class);
                     addSolution(heading,explanation);
+                }}
+                else{
+                    addSolution("No Data Available","");
                 }
-                }
+
             }
 
             @Override
@@ -66,7 +63,8 @@ public class Solution extends AppCompatActivity {
         LinearLayout rootLayout = findViewById(R.id.rootLinearLayout);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setBackgroundColor(Color.WHITE);
+        linearLayout.setBackgroundResource(R.drawable.rounded_corners);
+
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,

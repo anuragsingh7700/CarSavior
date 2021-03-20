@@ -36,13 +36,102 @@ public class Category extends AppCompatActivity {
         ignitionBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
                 Intent intent = new Intent(Category.this, Solution.class);
                 intent.putExtra("manufacturer",manufacturer);
                 intent.putExtra("model",model);
                 intent.putExtra("problem","ignition");
                 startActivity(intent);
 
+            }
+        });
+
+        acBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","ac");
+                startActivity(intent);
+
+            }
+        });
+
+        brakeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","brake");
+                startActivity(intent);
+
+            }
+        });
+
+        oilBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","oil");
+                startActivity(intent);
+
+            }
+        });
+
+        batteryBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","battery");
+                startActivity(intent);
+
+            }
+        });
+
+        engineBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","engine");
+                startActivity(intent);
+
+            }
+        });
+
+        tyreBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","tyre");
+                startActivity(intent);
+            }
+        });
+
+        overheatingBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","overheating");
+                startActivity(intent);
+            }
+        });
+
+        smokeBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Solution.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
+                intent.putExtra("problem","smoke");
+                startActivity(intent);
             }
         });
     }
