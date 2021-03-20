@@ -1,20 +1,17 @@
 package com.example.carsavior;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.accounts.Account;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,76 +21,119 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Homepage extends AppCompatActivity {
     public String manufacturer;
-    ArrayList<String> models = new ArrayList<String>();
     public String fueltype;
     public String model;
     Button passButton;
-
+    private List<String> models = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_homepage);
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-
         final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         final Spinner mspinner = (Spinner) findViewById(R.id.spinner2);
         final Spinner fspinner = (Spinner) findViewById(R.id.spinner3);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 Object item = parent.getItemAtPosition(pos);
-//                if (pos == 0) {
-//                    Toast.makeText
-//                            (getApplicationContext(), "Select a Manufacturer", Toast.LENGTH_SHORT)
-//                            .show();
-//                }
+                if (pos == 0) {
+                    Toast.makeText
+                            (getApplicationContext(), "Select a Manufacturer", Toast.LENGTH_SHORT)
+                            .show();
+                }
                 if (pos == 1) {
                     manufacturer = "tata_motors";
-                    fueltype = "Diesel";
-                    /*models.clear();
-                    models.add("Select Model...");
-                    models.add("Sumo");*/
+                    models.clear();
+                    models.add("Select Model");
 
-                }
-                if (pos == 2) {
-                    manufacturer = "maruti_suzuki";
-                    fueltype = "Petrol";
-                    /*models.clear();
-                    models.add("Select Model...");
-                    models.add("Dzire");
-                    models.add("Wagonr");
-                    *//*DatabaseReference myRef = database.getReference(manufacturer);
+                    DatabaseReference myRef = database.getReference(manufacturer);
 
                     myRef.addValueEventListener(new ValueEventListener() {
                         @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot child : dataSnapshot.getChildren()) {
-                                models.add(String.valueOf(child.getKey()));
-                                Log.i("Key", child.getKey());
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.getChildrenCount() > 0) {
+                                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                                    model = String.valueOf(child.getKey()).split("_")[0];
+                                    model = model.substring(0, 1).toUpperCase() + model.substring(1).toLowerCase();
+                                    models.add(model);
+                                }
+                            }else{
+                                models.clear();
+                                models.add("No Model Found");
                             }
-                            //Object[] objects = models.toArray();
-                            Log.i("Models", String.valueOf(models));
                         }
-
                         @Override
-                        public void onCancelled(DatabaseError error) {
+                        public void onCancelled(@NonNull DatabaseError error) {
                             // Failed to read value
                             Log.w("Failed Data Load", "Failed to read value.", error.toException());
                         }
 
-                    });*/
+                    });
+
+                }
+                if (pos == 2) {
+                    manufacturer = "maruti_suzuki";
+                    models.clear();
+                    models.add("Select Model");
+
+                    DatabaseReference myRef = database.getReference(manufacturer);
+
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.getChildrenCount() > 0) {
+                                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                                    model = String.valueOf(child.getKey()).split("_")[0];
+                                    model = model.substring(0, 1).toUpperCase() + model.substring(1).toLowerCase();
+                                    models.add(model);
+                                }
+                            }else{
+                                models.clear();
+                                models.add("No Model Found");
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            // Failed to read value
+                            Log.w("Failed Data Load", "Failed to read value.", error.toException());
+                        }
+
+                    });
                 }
                 if (pos == 3) {
                     manufacturer = "honda";
-                    /*models.clear();
-                    models.add("No Model Yet");*/
+                    DatabaseReference myRef = database.getReference(manufacturer);
+
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.getChildrenCount() > 0) {
+                                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                                    model = String.valueOf(child.getKey()).split("_")[0];
+                                    model = model.substring(0, 1).toUpperCase() + model.substring(1).toLowerCase();
+                                    models.add(model);
+                                }
+                            }else{
+                                models.clear();
+                                models.add("No Model Found");
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            // Failed to read value
+                            Log.w("Failed Data Load", "Failed to read value.", error.toException());
+                        }
+
+                    });
                 }
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Homepage.this, android.R.layout.simple_spinner_item, models);
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                mspinner.setAdapter(dataAdapter);
 
             }
 
@@ -104,11 +144,11 @@ public class Homepage extends AppCompatActivity {
         mspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 Object item = parent.getItemAtPosition(pos);
-//                if (pos == 0) {
-//                    Toast.makeText
-//                            (getApplicationContext(), "Select a Model", Toast.LENGTH_SHORT)
-//                            .show();
-//                }
+                if (pos == 0) {
+                    Toast.makeText
+                            (getApplicationContext(), "Select a Model", Toast.LENGTH_SHORT)
+                            .show();
+                }
                 if (pos == 1) {
                     model = "sumo";
                 }
@@ -155,81 +195,36 @@ public class Homepage extends AppCompatActivity {
         passButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("Manufacturer", manufacturer);
+
+
+                final Intent intent = new Intent(getApplicationContext(), Category.class);
+                intent.putExtra("manufacturer", manufacturer);
                 String value = model+"_"+fueltype;
-                intent.putExtra("Model", value);
+                intent.putExtra("model", value);
+
+                DatabaseReference myRef = database.getReference(manufacturer+'/'+value);
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getChildrenCount() > 0) {
+                            startActivity(intent); }
+                        else{
+                            Toast.makeText
+                            (getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT)
+                            .show();
+                        }
+                        }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
                 Log.i("Done", manufacturer + value);
 
-                startActivity(intent);
             }
         });
-        /*ArrayAdapter<String> adp = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, models) {
-            @Override
-            public boolean isEnabled(int position) {
-                if (position == 0) {
-                    // Disable the first item from Spinner
-                    // First item will be use for hint
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-
-            @Override
-            public View getDropDownView(int position, View convertView,
-                                        ViewGroup parent) {
-                View view = super.getDropDownView(position, convertView, parent);
-                TextView tv = (TextView) view;
-                if (position == 0) {
-                    // Set the hint text color gray
-                    tv.setTextColor(Color.GRAY);
-                } else {
-                    tv.setTextColor(Color.BLACK);
-                }
-                return view;
-            }
-        };
-
-        mspinner.setAdapter(adp);
-
-        //Set listener Called when the item is selected in spinner
-        mspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                Object item = parent.getItemAtPosition(pos);
-                //String text = mspinner.getSelectedItem().toString();
-                //Log.i("Model", text);
-                if (pos > 0) {
-                    Log.i("Model", item.toString());
-                }
-            }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-                Log.i("Default", "default");
-            }
-
-        });*/
-
-        /*mspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "This is " +
-                        adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_LONG).show();
-
-                try {
-                    //Your task here
-                }catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });*/
-
     }
 }
 

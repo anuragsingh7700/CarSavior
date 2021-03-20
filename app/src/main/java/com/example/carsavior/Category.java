@@ -4,23 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 public class Category extends AppCompatActivity {
-    private String manufacturer = "maruti_suzuki";
-    private String model = "wagonr_petrol";
+    private String manufacturer;
+    private String model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            manufacturer = extras.getString("manufacturer");
+            model = extras.getString("model");
+        }
         setContentView(R.layout.activity_category);
 
         ImageButton ignitionBtn = findViewById(R.id.ignitionBtn);

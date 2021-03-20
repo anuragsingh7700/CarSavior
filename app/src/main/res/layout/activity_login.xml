@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Manufacturer Login"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:gravity="center"
         android:fontFamily="@font/monda"/>
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Expert opinions might save lives!"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         android:fontFamily="@font/monda"/>
     <LinearLayout
@@ -39,7 +39,6 @@
             android:layout_height="match_parent"
             android:id="@+id/username"
             android:prompt="@color/colorPrimary"
-            android:tooltipText="@string/ignition"
             android:entries="@array/Manufacturers"
             android:padding="16dp"
             style="@style/Widget.AppCompat.Spinner.Underlined"

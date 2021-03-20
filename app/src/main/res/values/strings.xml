@@ -9,15 +9,11 @@
     <string-array name="Manufacturers">
         <item>Select Manufacturer...</item>
         <item>Tata</item>
-        <item>Maruti</item>
+        <item>Maruti Suzuki</item>
         <item>Honda</item>
     </string-array>
 
     <string-array name="Model">
-        <item>Select Model...</item>
-        <item>Sumo</item>
-        <item>Dzire</item>
-        <item>Wagonr</item>
 
     </string-array>
 
@@ -39,12 +35,5 @@
     <string name="country_prompt">Choose a country</string>
     <string name="overheating">"Overheating "</string>
     <string name="smoke">Burning Smell</string>
-
-    <string-array name="Manufacturers">
-        <item>Manufacturer</item>
-        <item>Maruti Suzuki</item>
-        <item>Tata</item>
-        <item>Honda</item>
-    </string-array>
 
 </resources>

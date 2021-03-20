@@ -8,7 +8,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,13 +37,15 @@ public class Solution extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getChildrenCount() > 0){
+                    removeAllViewsFromLinearLayout();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String heading = child.getKey();
-
                     assert heading != null;
                     String explanation = dataSnapshot.child(heading).getValue(String.class);
                     addSolution(heading,explanation);
-                }}
+                }
+                addExpertsMessage();
+                }
                 else{
                     addSolution("No Data Available","");
                 }
@@ -89,6 +90,25 @@ public class Solution extends AppCompatActivity {
         body.setTypeface(typeface);
         body.setPadding(0,0,0,10);
         linearLayout.addView(head);
+        linearLayout.addView(body);
+        rootLayout.addView(linearLayout);
+    }
+    private void removeAllViewsFromLinearLayout(){
+        LinearLayout linearLayout = findViewById(R.id.rootLinearLayout);
+        linearLayout.removeAllViews();
+    }
+    private void addExpertsMessage(){
+        LinearLayout rootLayout = findViewById(R.id.rootLinearLayout);
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setBackgroundColor(Color.BLACK);
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.monda);
+        TextView body = new TextView(this);
+        body.setText("Solutions are provided by Experts");
+        body.setTextColor(Color.WHITE);
+        body.setTextSize(18);
+        body.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        body.setTypeface(typeface);
         linearLayout.addView(body);
         rootLayout.addView(linearLayout);
     }
