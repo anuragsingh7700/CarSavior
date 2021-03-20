@@ -4,9 +4,17 @@
     <string name="logo_word_1">CAR</string>
     <string name="logo_word_2">SAVIOR</string>
     <string name="Manufacturer">Manufacturer</string>
-
+    <string name="ignition">Ignition</string>
+    <string name="ac">Air Conditioner</string>
+    <string name="brake">Brake</string>
+    <string name="engine">Engine</string>
+    <string name="oil">Oil Leak</string>
+    <string name="tyre">Tyre Puncture</string>
+    <string name="battery">Battery</string>
 
     <string name="country_prompt">Choose a country</string>
+    <string name="overheating">"Overheating "</string>
+    <string name="smoke">Burning Smell</string>
 
     <string-array name="country_arrays">
         <item>Malaysia</item>
