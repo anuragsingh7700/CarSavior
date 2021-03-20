@@ -35,6 +35,7 @@ public class Category extends AppCompatActivity {
         ImageButton tyreBtn = findViewById(R.id.tyreBtn);
         ImageButton overheatingBtn = findViewById(R.id.overheatingBtn);
         ImageButton smokeBtn = findViewById(R.id.smokeBtn);
+        ImageButton submitBtn = findViewById(R.id.submitBtn);
 
         ignitionBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -134,6 +135,15 @@ public class Category extends AppCompatActivity {
                 intent.putExtra("manufacturer",manufacturer);
                 intent.putExtra("model",model);
                 intent.putExtra("problem","smoke");
+                startActivity(intent);
+            }
+        });
+
+        submitBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(Category.this, Login.class);
+                intent.putExtra("manufacturer",manufacturer);
+                intent.putExtra("model",model);
                 startActivity(intent);
             }
         });

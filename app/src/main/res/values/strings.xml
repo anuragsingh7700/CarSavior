@@ -7,7 +7,7 @@
     <string name="saved_cars">SEARCH HISTORY</string>
     <string name="search">SEARCH CAR</string>
     <string-array name="Manufacturers">
-        <item>Select Manufacturer...</item>
+        <item>Select Manufacturer</item>
         <item>Tata</item>
         <item>Maruti Suzuki</item>
         <item>Honda</item>
@@ -18,7 +18,7 @@
     </string-array>
 
     <string-array name="fueltype">
-        <item>Select FuelType...</item>
+        <item>Select FuelType</item>
         <item>Petrol</item>
         <item>Diesel</item>
         <item>CNG</item>
@@ -35,6 +35,10 @@
     <string name="country_prompt">Choose a country</string>
     <string name="overheating">"Overheating "</string>
     <string name="smoke">Burning Smell</string>
+    <string name="submit">Submit a Issue</string>
+    <string name="submit_a_question">Submit a Question</string>
+    <string name="message_for_help">Your question today might \n help someone tomorrow!</string>
+    <string name="describe_your_problem">Describe Your Problem</string>
 
 
 </resources>
