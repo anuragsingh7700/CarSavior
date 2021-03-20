@@ -167,57 +167,45 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view4"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="59dp"
-            android:layout_marginEnd="59dp"
-            android:layout_marginBottom="92dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/monda"
-                android:text="First Saved Car"
-                android:textAlignment="center"
-                android:textColor="#150202"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view5"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
+            android:layout_width="340dp"
+            android:layout_height="117dp"
             android:layout_gravity="center"
             android:layout_marginStart="59dp"
             android:layout_marginEnd="59dp"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="#FFFFFF"
+            app:cardBackgroundColor="#1B1616"
             app:cardCornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent" >
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/textView5"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/monda"
-                android:text="Second Saved Car"
-                android:textAlignment="center"
-                android:textColor="#150202"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:layout_height="117dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="#1B1616"
+                    android:textColor="#FFFFFF"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorLink="#FFFFFF"
+                    app:backgroundTint="#1B1616" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="#1B1616"
+                    android:textColor="#FFFFFF"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorLink="#FFFFFF"
+                    app:backgroundTint="#1B1616" />
+
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
 
