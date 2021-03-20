@@ -64,7 +64,7 @@
             android:layout_marginStart="59dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="59dp"
-            app:cardBackgroundColor="#FFFEFE"
+            app:cardBackgroundColor="#1B1616"
             app:cardCornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,11 +75,10 @@
                 android:layout_width="295dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                android:dropDownSelector="?android:attr/colorBackground"
+                android:dropDownSelector="@drawable/splash"
                 android:entries="@array/Manufacturers"
-                android:popupBackground="@drawable/common_google_signin_btn_icon_light_normal_background"
+                android:popupBackground="?android:attr/actionModeSplitBackground"
                 android:spinnerMode="dropdown" />
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -90,7 +89,7 @@
             android:layout_marginStart="59dp"
             android:layout_marginTop="19dp"
             android:layout_marginEnd="59dp"
-            app:cardBackgroundColor="#FFFFFF"
+            app:cardBackgroundColor="#1B1616"
             app:cardCornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,9 +100,9 @@
                 android:layout_width="298dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                android:dropDownSelector="?android:attr/colorBackground"
+                android:dropDownSelector="@drawable/splash"
                 android:entries="@array/Model"
-                android:popupBackground="@drawable/common_google_signin_btn_icon_light_normal_background"
+                android:popupBackground="?android:attr/actionModeSplitBackground"
                 android:spinnerMode="dropdown" />
         </androidx.cardview.widget.CardView>
 
@@ -115,7 +114,7 @@
             android:layout_marginStart="59dp"
             android:layout_marginEnd="59dp"
             android:layout_marginBottom="344dp"
-            app:cardBackgroundColor="#FFFFFF"
+            app:cardBackgroundColor="#1B1616"
             app:cardCornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -129,12 +128,12 @@
                 android:layout_gravity="end"
                 android:dropDownSelector="?android:attr/colorBackground"
                 android:entries="@array/fueltype"
-                android:popupBackground="@drawable/common_google_signin_btn_icon_light_normal_background"
+                android:popupBackground="?android:attr/actionModeSplitBackground"
                 android:spinnerMode="dropdown" />
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="159dp"
@@ -164,7 +163,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/search_button" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view4"

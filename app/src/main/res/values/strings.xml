@@ -7,25 +7,25 @@
     <string name="saved_cars">SAVED CARS</string>
     <string name="search">SEARCH CAR</string>
     <string-array name="Manufacturers">
-        <item><font fgcolor='#000000'>Select Manufacturer...</font></item>
-        <item><font fgcolor='#000000'>Tata</font></item>
-        <item><font fgcolor='#000000'>Maruti</font></item>
-        <item><font fgcolor='#000000'>Honda</font></item>
+        <item>Select Manufacturer...</item>
+        <item>Tata</item>
+        <item>Maruti</item>
+        <item>Honda</item>
     </string-array>
 
     <string-array name="Model">
-        <item><font fgcolor='#000000'>Select Model...</font></item>
-        <item><font fgcolor='#000000'>Should</font></item>
-        <item><font fgcolor='#000000'>Not</font></item>
-        <item><font fgcolor='#000000'>Be</font></item>
-        <item><font fgcolor='#000000'>Hardcoded</font></item>
+        <item>Select Model...</item>
+        <item>Sumo</item>
+        <item>Dzire</item>
+        <item>Wagonr</item>
+
     </string-array>
 
     <string-array name="fueltype">
-        <item><font fgcolor='#000000'>Select FuelType...</font></item>
-        <item><font fgcolor='#000000'>Petrol</font></item>
-        <item><font fgcolor='#000000'>Diesel</font></item>
-        <item><font fgcolor='#000000'>CNG</font></item>
+        <item>Select FuelType...</item>
+        <item>Petrol</item>
+        <item>Diesel</item>
+        <item>CNG</item>
     </string-array>
 
     <string name="country_prompt">Choose a country</string>
