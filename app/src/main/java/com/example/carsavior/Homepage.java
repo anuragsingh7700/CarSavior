@@ -1,11 +1,11 @@
 package com.example.carsavior;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +33,7 @@ public class Homepage extends AppCompatActivity {
     public String value;
     Button passButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +48,11 @@ public class Homepage extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 Object item = parent.getItemAtPosition(pos);
-                if (pos == 0) {
-                    Toast.makeText
-                            (getApplicationContext(), "Select a Manufacturer", Toast.LENGTH_SHORT)
-                            .show();
-                }
+//                if (pos == 0) {
+//                    Toast.makeText
+//                            (getApplicationContext(), "Select a Manufacturer", Toast.LENGTH_SHORT)
+//                            .show();
+//                }
                 if (pos == 1) {
                     manufacturer = "tata_motors";
                     models.clear();
@@ -155,15 +156,7 @@ public class Homepage extends AppCompatActivity {
                             (getApplicationContext(), "Select a Model", Toast.LENGTH_SHORT)
                             .show();
                 }
-                if (pos == 1) {
-                    model = "sumo";
-                }
-                if (pos == 2) {
-                    model = "dzire";
-                }
-                if (pos == 3) {
-                   model = "wagonr";
-                }
+                model = item.toString().toLowerCase();
 
             }
 
@@ -175,11 +168,6 @@ public class Homepage extends AppCompatActivity {
         fspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 Object item = parent.getItemAtPosition(pos);
-//                if (pos == 0) {
-//                    Toast.makeText
-//                            (getApplicationContext(), "Select a Model", Toast.LENGTH_SHORT)
-//                            .show();
-//                }
                 if (pos == 1) {
                     fueltype = "petrol";
                 }
@@ -197,11 +185,11 @@ public class Homepage extends AppCompatActivity {
         });
         SharedPreferences sharedpreferences = getSharedPreferences("car-savior", Context.MODE_PRIVATE);
 
-        String setting1 = sharedpreferences.getString("car1", "null");
-        if(setting1 != "null"){
-            String[] splitted = setting1.split("\\s+");
+        String setting1 = sharedpreferences.getString("car1", "");
+        if(!setting1.equals("")){
+            String[] splitted = setting1.split(" ");
             manufacturer = splitted[0].toLowerCase();
-            value = (splitted[1]+" "+splitted[2]).toLowerCase();
+            value = (splitted[1]+"_"+splitted[2]).toLowerCase();
         }
         Button scar1 = (Button) findViewById(R.id.button2);
         scar1.setText(setting1);
@@ -209,16 +197,36 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), Category.class);
-                intent.putExtra("Manufacturer", manufacturer);
-                intent.putExtra("Model", value);
-                Log.i("Done", manufacturer + value);
+                final Intent intent = new Intent(getApplicationContext(), Category.class);
+                intent.putExtra("manufacturer", manufacturer);
+                intent.putExtra("model", value);
 
-                startActivity(intent);
+                DatabaseReference myRef = database.getReference(manufacturer+'/'+value);
+                Log.i("",manufacturer+"/"+value);
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getChildrenCount() > 0) {
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast.makeText
+                                    (getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Log.i("Done", manufacturer + value);
             }
         });
         String setting2 = sharedpreferences.getString("car2", "");
-        if(setting2 != "null"){
+        Log.i("Setting2",setting2);
+        if(!setting2.equals("")){
             String[] splitted2 = setting2.split("\\s+");
             manufacturer = splitted2[0].toLowerCase();
             value = (splitted2[1]+"_"+splitted2[2]).toLowerCase();
@@ -230,7 +238,6 @@ public class Homepage extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences sharedpreferences = getSharedPreferences("car-savior", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                //String value = model+"_"+fueltype;
                 String temp1 = sharedpreferences.getString("car1", "");
                 String temp2 = sharedpreferences.getString("car2", "");
                 editor.putString("car1", temp2);
@@ -241,13 +248,31 @@ public class Homepage extends AppCompatActivity {
                 Button scar1 = (Button) findViewById(R.id.button2);
                 scar1.setText(temp2);
                 editor.apply();
-                Intent intent = new Intent(getApplicationContext(), Category.class);
-                intent.putExtra("Manufacturer", manufacturer);
 
-                intent.putExtra("Model", value);
+                final Intent intent = new Intent(getApplicationContext(), Category.class);
+                intent.putExtra("manufacturer", manufacturer);
+
+                intent.putExtra("model", value);
+
+                DatabaseReference myRef = database.getReference(manufacturer+'/'+value);
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getChildrenCount() > 0) {
+                            startActivity(intent); }
+                        else{
+                            Toast.makeText
+                                    (getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 Log.i("Done", manufacturer + value);
-
-                startActivity(intent);
             }
         });
 

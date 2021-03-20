@@ -12,6 +12,10 @@ public class Category extends AppCompatActivity {
     private String model;
 
     @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, Homepage.class));
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
