@@ -40,11 +40,5 @@
     <string name="overheating">"Overheating "</string>
     <string name="smoke">Burning Smell</string>
 
-    <string-array name="Manufacturers">
-        <item>Manufacturer</item>
-        <item>Maruti Suzuki</item>
-        <item>Tata</item>
-        <item>Honda</item>
-    </string-array>
 
 </resources>

@@ -166,7 +166,7 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Category.class);
                 intent.putExtra("Manufacturer", manufacturer);
                 intent.putExtra("Model", value);
                 Log.i("Done", manufacturer + value);
@@ -198,7 +198,7 @@ public class Homepage extends AppCompatActivity {
                 Button scar1 = (Button) findViewById(R.id.button2);
                 scar1.setText(temp2);
                 editor.apply();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Category.class);
                 intent.putExtra("Manufacturer", manufacturer);
 
                 intent.putExtra("Model", value);
@@ -223,7 +223,7 @@ public class Homepage extends AppCompatActivity {
                 editor.putString("car2", temp);
                 editor.apply();
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Category.class);
                 intent.putExtra("Manufacturer", manufacturer);
 
                 intent.putExtra("Model", value);
