@@ -9,7 +9,6 @@
     <string-array name="Manufacturers">
         <item><font fgcolor='#000000'>Select Manufacturer...</font></item>
         <item><font fgcolor='#000000'>Tata</font></item>
-        <item><font fgcolor='#000000'>Honda</font></item>
         <item><font fgcolor='#000000'>Maruti</font></item>
         <item><font fgcolor='#000000'>Honda</font></item>
     </string-array>
