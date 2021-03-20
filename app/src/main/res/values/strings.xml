@@ -4,7 +4,7 @@
     <string name="logo_word_1">CAR</string>
     <string name="logo_word_2">SAVIOR</string>
     <string name="Manufacturer">Manufacturer</string>
-    <string name="saved_cars">SAVED CARS</string>
+    <string name="saved_cars">SEARCH HISTORY</string>
     <string name="search">SEARCH CAR</string>
     <string-array name="Manufacturers">
         <item>Select Manufacturer...</item>
