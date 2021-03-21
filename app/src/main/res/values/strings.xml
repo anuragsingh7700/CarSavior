@@ -23,7 +23,7 @@
         <item>Diesel</item>
         <item>CNG</item>
     </string-array>
-    
+
     <string name="ignition">Ignition</string>
     <string name="ac">Air Conditioner</string>
     <string name="brake">Brake</string>
@@ -39,6 +39,8 @@
     <string name="submit_a_question">Submit a Question</string>
     <string name="message_for_help">Your question today might \n help someone tomorrow!</string>
     <string name="describe_your_problem">Describe Your Problem</string>
+    <string name="call_the_experts">Call the Experts</string>
+    <string name="video_call">Video Call</string>
 
 
 </resources>

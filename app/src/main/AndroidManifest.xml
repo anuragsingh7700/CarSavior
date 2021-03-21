@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.carsavior">
-    <!--<uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BIND_CARRIER_MESSAGING_CLIENT_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login" android:screenOrientation="portrait"/>
-        <activity android:name=".Solution" android:screenOrientation="portrait"/>
+        <activity android:name=".VideoCall"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".VideoLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Solution"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Category"
             android:screenOrientation="portrait" />
